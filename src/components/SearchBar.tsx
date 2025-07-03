@@ -1,7 +1,6 @@
 import React from 'react';
 import { FilterState } from '../types';
 import { Icon } from './Icon';
-import { UserMenu } from './UserMenu';
 
 interface SearchBarProps {
   filters: FilterState;
@@ -65,8 +64,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             Clear
           </button>
         )}
-
-        <UserMenu />
       </div>
     </div>
   );

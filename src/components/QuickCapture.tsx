@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Category, Priority, Resource } from '../types';
 import { CATEGORIES } from '../utils/constants';
 import { Icon } from './Icon';
+import { generateId } from '../utils/storage';
 
 interface QuickCaptureProps {
   isOpen: boolean;
@@ -33,7 +34,7 @@ export const QuickCapture: React.FC<QuickCaptureProps> = ({
     resourceTitle: ''
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.title.trim()) return;
@@ -41,7 +42,7 @@ export const QuickCapture: React.FC<QuickCaptureProps> = ({
     const resources: Resource[] = [];
     if (formData.resourceUrl && formData.resourceTitle) {
       resources.push({
-        id: crypto.randomUUID(),
+        id: generateId(),
         type: 'link',
         title: formData.resourceTitle,
         url: formData.resourceUrl,
@@ -49,7 +50,7 @@ export const QuickCapture: React.FC<QuickCaptureProps> = ({
       });
     }
 
-    await onSave({
+    onSave({
       title: formData.title,
       description: formData.description,
       category: formData.category,
