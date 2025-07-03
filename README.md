@@ -1,6 +1,6 @@
 # IdeaFlow - Comprehensive Idea Management System
 
-A modern, intuitive web application for capturing, organizing, and managing your ideas with speed and efficiency. Built with React, TypeScript, and Tailwind CSS.
+A modern, intuitive web application for capturing, organizing, and managing your ideas with speed and efficiency. Built with React, TypeScript, and Tailwind CSS. Made with https://bolt.new/
 
 ![IdeaFlow Screenshot](https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop)
 
@@ -40,7 +40,6 @@ A modern, intuitive web application for capturing, organizing, and managing your
 - **Icons**: Lucide React
 - **Build Tool**: Vite
 - **Storage**: Local Storage (API-ready architecture)
-- **State Management**: React Hooks
 
 ## 📦 Installation
 
