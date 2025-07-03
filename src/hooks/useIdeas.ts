@@ -26,7 +26,7 @@ export const useIdeas = () => {
         .from('ideas')
         .select(`
           *,
-          idea_resources (*)
+          idea_resources!idea_resources_idea_id_fkey (*)
         `)
         .eq('user_id', user.id)
         .order('created_at', { ascending: false });
