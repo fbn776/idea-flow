@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Idea, Category, Priority, Resource } from '../types';
 import { CATEGORIES } from '../utils/constants';
 import { Icon } from './Icon';
-import { generateId } from '../utils/storage';
 
 interface EditIdeaModalProps {
   idea: Idea | null;
@@ -44,12 +43,12 @@ export const EditIdeaModal: React.FC<EditIdeaModalProps> = ({
     }
   }, [idea]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!idea || !formData.title.trim()) return;
 
-    onSave(idea.id, {
+    await onSave(idea.id, {
       title: formData.title,
       description: formData.description,
       category: formData.category,
@@ -66,7 +65,7 @@ export const EditIdeaModal: React.FC<EditIdeaModalProps> = ({
       setFormData(prev => ({
         ...prev,
         resources: [...prev.resources, {
-          id: generateId(),
+          id: crypto.randomUUID(),
           type: 'link',
           title: newResource.title,
           url: newResource.url,
